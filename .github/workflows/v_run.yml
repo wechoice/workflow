@@ -28,25 +28,22 @@ jobs:
           ${{ runner.os }}-pip-
     - name: 设置时区
       run: sudo timedatectl set-timezone 'Asia/Shanghai'
-    - name: 安装依赖
-      run: |
-        pip install -r ./utils/requirements.txt
+    
     - name: 执行任务
       # env:
       #   CONFIG: ${{ secrets.CONFIG }}
       run: |
-        python ./utils/list_merge.py
+        python main.py
       
     - name: 提交更改
       run: |                 
          git config --local user.email "actions@github.com"
          git config --local user.name "GitHub Actions"
-         git add ./sub
-         git add ./utils
+         git add .
          git add README.md
          git commit -m "$(date '+%Y-%m-%d %H:%M:%S')合并节点"
     - name: 推送更改
-      uses:  ad-m/github-push-action@master
+      uses:  ad-m/github-push-action@main
       with:
          # github_token: ${{ secrets.TOKEN }}
          branch: main
