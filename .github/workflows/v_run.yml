@@ -32,8 +32,8 @@ jobs:
       run: |
         pip install -r requirements.txt
     - name: 执行任务
-        # env:
-        # CONFIG: ${{ secrets.CONFIG }}
+        env:
+        CONFIG: ${{ secrets.CONFIG }}
       run: |
         python main.py
       
