@@ -32,8 +32,8 @@ jobs:
       run: |
         pip install -r requirements.txt
     - name: 执行任务
-      # env:
-      #   CONFIG: ${{ secrets.CONFIG }}
+        # env:
+        # CONFIG: ${{ secrets.CONFIG }}
       run: |
         python main.py
       
@@ -47,5 +47,5 @@ jobs:
     - name: 推送更改
       uses:  ad-m/github-push-action@master
       with:
-         # github_token: ${{ secrets.TOKEN }}
+         github_token: ${{ secrets.TOKEN }}
          branch: main
